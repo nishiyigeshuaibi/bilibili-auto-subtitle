@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "B站自动字幕",
+  "version": "1.0.0",
+  "description": "打开B站视频时自动开启字幕，无需手动操作。",
+  "icons": {
+    "16": "icon.svg",
+    "48": "icon.svg",
+    "128": "icon.svg"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.bilibili.com/video/*",
+        "https://www.bilibili.com/list/*",
+        "https://www.bilibili.com/bangumi/*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icon.svg"
+  },
+  "permissions": ["storage"],
+  "host_permissions": [
+    "https://www.bilibili.com/*"
+  ]
+}
